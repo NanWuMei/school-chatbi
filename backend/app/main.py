@@ -44,5 +44,8 @@ def health() -> dict:
 
 
 FRONTEND_DIST = Path(__file__).resolve().parents[2] / "frontend" / "dist"
-if FRONTEND_DIST.exists():
-    app.mount("/", StaticFiles(directory=str(FRONTEND_DIST), html=True), name="frontend")
+app.mount(
+    "/",
+    StaticFiles(directory=str(FRONTEND_DIST), html=True, check_dir=False),
+    name="frontend",
+)
