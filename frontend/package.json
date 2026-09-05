@@ -2,6 +2,7 @@
   "name": "chatbi-frontend",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@11.19.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -22,4 +23,3 @@
     "vue-tsc": "^2.1.10"
   }
 }
-
