@@ -1,5 +1,0 @@
-[tool.vercel]
-entrypoint = "backend.app.main:app"
-
-[tool.vercel.scripts]
-build = "cd frontend && pnpm install --frozen-lockfile && pnpm run build"
