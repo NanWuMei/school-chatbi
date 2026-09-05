@@ -1,0 +1,74 @@
+{
+  "tables": [
+    {
+      "table_name": "student",
+      "comment": "学生信息表",
+      "fields": [
+        {"name": "id", "type": "BIGINT", "comment": "主键ID"},
+        {"name": "student_id", "type": "VARCHAR(20)", "comment": "学号（用户ID）"},
+        {"name": "name", "type": "VARCHAR(50)", "comment": "姓名"},
+        {"name": "gender", "type": "TINYINT", "comment": "性别：1男 2女"},
+        {"name": "class_id", "type": "VARCHAR(20)", "comment": "班级ID"},
+        {"name": "grade", "type": "VARCHAR(20)", "comment": "年级"},
+        {"name": "major", "type": "VARCHAR(100)", "comment": "专业"}
+      ],
+      "relations": ["class_id 关联 class_info.class_id"],
+      "example_sql": "SELECT * FROM student WHERE class_id='class_2301'",
+      "labels": ["学生", "表结构"]
+    },
+    {
+      "table_name": "class_info",
+      "comment": "班级信息表",
+      "fields": [
+        {"name": "id", "type": "BIGINT", "comment": "主键ID"},
+        {"name": "class_id", "type": "VARCHAR(20)", "comment": "班级ID"},
+        {"name": "class_name", "type": "VARCHAR(50)", "comment": "班级名称"},
+        {"name": "grade", "type": "VARCHAR(20)", "comment": "年级"},
+        {"name": "major", "type": "VARCHAR(100)", "comment": "专业"},
+        {"name": "counselor_id", "type": "VARCHAR(20)", "comment": "辅导员ID"}
+      ],
+      "relations": ["counselor_id 关联 user.user_id"],
+      "example_sql": "SELECT * FROM class_info WHERE grade='2023'",
+      "labels": ["班级", "表结构"]
+    },
+    {
+      "table_name": "student_score",
+      "comment": "学生成绩表",
+      "fields": [
+        {"name": "id", "type": "BIGINT", "comment": "主键ID"},
+        {"name": "student_id", "type": "VARCHAR(20)", "comment": "学号"},
+        {"name": "course_id", "type": "VARCHAR(20)", "comment": "课程ID"},
+        {"name": "course_name", "type": "VARCHAR(100)", "comment": "课程名称"},
+        {"name": "exam_batch", "type": "VARCHAR(50)", "comment": "考试批次"},
+        {"name": "score", "type": "DECIMAL(5,2)", "comment": "考试分数，NULL表示缺考/缓考"},
+        {"name": "score_status", "type": "TINYINT", "comment": "0正常 1缺考 2缓考"},
+        {"name": "credit", "type": "DECIMAL(3,1)", "comment": "课程学分"},
+        {"name": "gpa", "type": "DECIMAL(3,2)", "comment": "绩点"},
+        {"name": "class_id", "type": "VARCHAR(20)", "comment": "班级ID"}
+      ],
+      "relations": [
+        "student_id 关联 student.student_id",
+        "class_id 关联 class_info.class_id"
+      ],
+      "example_sql": "SELECT AVG(score) FROM student_score WHERE course_name='高等数学' AND exam_batch='2024-2025学年第一学期期末' AND score_status=0",
+      "labels": ["成绩", "表结构"]
+    },
+    {
+      "table_name": "user",
+      "comment": "用户表",
+      "fields": [
+        {"name": "id", "type": "BIGINT", "comment": "主键ID"},
+        {"name": "user_id", "type": "VARCHAR(20)", "comment": "用户ID（学号/工号）"},
+        {"name": "name", "type": "VARCHAR(50)", "comment": "姓名"},
+        {"name": "role", "type": "TINYINT", "comment": "1学生 2班长 3辅导员"},
+        {"name": "class_id", "type": "VARCHAR(20)", "comment": "关联班级ID"},
+        {"name": "grade", "type": "VARCHAR(20)", "comment": "管辖年级"},
+        {"name": "password_hash", "type": "VARCHAR(255)", "comment": "密码哈希"}
+      ],
+      "relations": [],
+      "example_sql": "SELECT * FROM user WHERE user_id='202300101'",
+      "labels": ["用户", "表结构"]
+    }
+  ]
+}
+

@@ -1,0 +1,13 @@
+{
+  "cases": [
+    {"query": "我高数多少分", "intent": "score", "course": "高等数学"},
+    {"query": "我的加权绩点排第几", "intent": "gpa_rank", "course": null},
+    {"query": "我们班挂科率是多少", "intent": "fail_rate", "course": null},
+    {"query": "年级各科平均分对比", "intent": "course_compare", "course": null},
+    {"query": "这次考试怎么样", "intent": "avg_score", "course": null},
+    {"query": "各班平均分对比", "intent": "class_compare", "course": null},
+    {"query": "高数分数段分布", "intent": "score_distribution", "course": "高等数学"},
+    {"query": "大学英语及格率", "intent": "pass_rate", "course": "大学英语"}
+  ]
+}
+

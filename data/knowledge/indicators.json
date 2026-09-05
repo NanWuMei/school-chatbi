@@ -1,0 +1,69 @@
+{
+  "indicators": [
+    {
+      "id": "gpa",
+      "name": "加权绩点",
+      "synonyms": ["GPA", "平均绩点", "绩点"],
+      "formula": "Σ（课程学分 × 课程绩点） / Σ（课程学分）",
+      "description": "按学分权重计算的绩点，不是算术平均分。",
+      "labels": ["绩点", "排名"]
+    },
+    {
+      "id": "fail_rate",
+      "name": "挂科率",
+      "synonyms": ["不及格率", "挂了多少", "挂科"],
+      "formula": "不及格人数 / 参考人数 × 100%",
+      "description": "分数小于60分且成绩状态为正常的学生占比。",
+      "labels": ["挂科", "预警"]
+    },
+    {
+      "id": "pass_rate",
+      "name": "及格率",
+      "synonyms": ["通过率"],
+      "formula": "及格人数 / 参考人数 × 100%",
+      "description": "分数大于等于60分的正常成绩占比。",
+      "labels": ["及格", "通过"]
+    },
+    {
+      "id": "avg_score",
+      "name": "平均分",
+      "synonyms": ["均分", "平均成绩"],
+      "formula": "Σ分数 / 参考人数",
+      "description": "缺考和缓考成绩不计入。",
+      "labels": ["平均分"]
+    },
+    {
+      "id": "score_distribution",
+      "name": "分数段分布",
+      "synonyms": ["成绩分布", "分段统计"],
+      "formula": "按0-59、60-69、70-79、80-89、90-100分组统计人数",
+      "description": "用于判断成绩整体形态和低分/高分聚集情况。",
+      "labels": ["分布", "图表"]
+    },
+    {
+      "id": "rank",
+      "name": "排名",
+      "synonyms": ["名次", "排第几"],
+      "formula": "按加权绩点降序排名，同分同名次",
+      "description": "支持班级或年级范围内的排名。",
+      "labels": ["排名", "绩点"]
+    },
+    {
+      "id": "class_compare",
+      "name": "班级对比",
+      "synonyms": ["各班对比", "班级平均分"],
+      "formula": "按班级分组计算平均分、及格率、挂科率等",
+      "description": "横向比较不同班级的学业表现。",
+      "labels": ["对比", "班级"]
+    },
+    {
+      "id": "course_compare",
+      "name": "各科对比",
+      "synonyms": ["科目对比", "各科平均分"],
+      "formula": "按课程分组计算平均分、及格率等",
+      "description": "识别难度较大的科目和薄弱科目。",
+      "labels": ["对比", "课程"]
+    }
+  ]
+}
+
